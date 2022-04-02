@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+<script src="./lightchar.js"></script>
+<script type="text/javascript">
+
+// BAR
+let canvasBar = document.createElement('canvas');
+canvasBar.width = canvasBar.height = 200;
+canvasBar.style.border = '1px solid';
+document.body.appendChild(canvasBar);
+
+let bc = new BarChart(
+  canvasBar, 
+  {
+    data: [
+        { label: 'c', value: 90, color: '#fc4f30' },
+        { label: 'py', value: 100, color: '#00bfd5' },
+        { label: 'html', value: 120, color: '#6998b8' },
+        { label: 'css', value: 115, color: '#b86979' },
+        { label: 'js', value: 60, color: '#b8b469' },
+    ], 
+    padding: 0.9, /* from 0 to 1 */
+    // bold: 0.5, /* from -1 to 1 */
+    animationSpeed: 0.5,
+  }
+)
+canvasBar.addEventListener('mouseenter', ()=>{
+  bc.draw();
+});
+
+// DONUT
+let canvasDonut = document.createElement('canvas');
+canvasDonut.width = canvasDonut.height = 200;
+canvasDonut.style.border = '1px solid';
+document.body.appendChild(canvasDonut);
+
+let dc = new DonutChart(
+  canvasDonut, 
+  {
+    data: [
+        { label: 'c', value: 90, color: '#fc4f30' },
+        { label: 'py', value: 100, color: '#00bfd5' },
+        { label: 'html', value: 120, color: '#6998b8' },
+        { label: 'css', value: 115, color: '#b86979' },
+        { label: 'js', value: 60, color: '#b8b469' },
+    ], 
+    holeSize: 0.6, 
+    animationSpeed: 0.5,
+  }
+)
+canvasDonut.addEventListener('mouseenter', ()=>{
+  dc.draw();
+});
+
+
+</script>
+</body>
+</html>
